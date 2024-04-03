@@ -85,3 +85,20 @@ const dog = document.getElementById('dog');
     }
 
     getNewCat();
+
+
+    /*In the provided code, jsonData.message is not applicable because the response structure from the Cat API differs from that of the Dog API.
+For the Dog API (https://dog.ceo/api/breeds/image/random), the response structure typically looks like this:
+json
+
+Copy code
+{ "message": "https://images.dog.ceo/breeds/bulldog/n02096585_10047.jpg", "status": "success" } 
+Here, the URL of the dog image is contained within the message property of the JSON object.
+However, for the Cat API (https://api.thecatapi.com/v1/images/search), the response structure looks like this:
+json
+
+Copy code
+[ { "breeds": [], "id": "5qj", "url": "https://cdn2.thecatapi.com/images/5qj.jpg", "width": 500, "height": 750 } ] 
+Here, the URL of the cat image is directly stored as the url property of the first object in the JSON array.
+So, to get the URL of the cat image, we need to access it using jsonData[0].url, as demonstrated in the code. Using jsonData.message would not work because the response structure doesn't have a message property.
+*/
